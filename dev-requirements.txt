@@ -16,6 +16,10 @@ bumpversion==0.6.0
     # via -r dev-requirements.in
 casbin==0.18.1
     # via -r dev-requirements.in
+certifi==2020.12.5
+    # via requests
+chardet==4.0.0
+    # via requests
 click==7.1.2
     # via
     #   pip-tools
@@ -34,6 +38,8 @@ gitpython==0.3.6
     # via pypi-publisher
 h11==0.12.0
     # via uvicorn
+idna==2.10
+    # via requests
 iniconfig==1.1.1
     # via pytest
 packaging==20.9
@@ -56,14 +62,22 @@ pytest==6.2.2
     # via
     #   -r dev-requirements.in
     #   pytest-cov
+requests==2.25.1
+    # via -r dev-requirements.in
 simpleeval==0.9.10
     # via casbin
 smmap==3.0.5
     # via gitdb
+starlette-auth-toolkit==0.5.0
+    # via -r dev-requirements.in
 starlette==0.13.6
-    # via fastapi
+    # via
+    #   fastapi
+    #   starlette-auth-toolkit
 toml==0.10.2
     # via pytest
+urllib3==1.26.3
+    # via requests
 uvicorn==0.13.4
     # via -r dev-requirements.in
 

@@ -6,6 +6,7 @@ from starlette.requests import Request
 from starlette.responses import JSONResponse
 from starlette.status import HTTP_403_FORBIDDEN
 from starlette.types import ASGIApp, Receive, Scope, Send
+from starlette.authentication import BaseUser
 
 
 class CasbinMiddleware:
@@ -17,24 +18,15 @@ class CasbinMiddleware:
             self,
             app: ASGIApp,
             enforcer: Enforcer,
-            token_loc: str = 'Header',
-            token_key: str = 'X-Token',
-            token_decode: typing.Callable = None
     ) -> None:
         """
         Configure Casbin Middleware
 
         :param app:Retain for ASGI.
         :param enforcer:Casbin Enforcer, must be initialized before FastAPI start.
-        :param auth_type:Use auth or not.Usually,auth was provided by other middleware which implement
-        AuthenticationMiddleware.
-        :param token_loc:Where to find "Token" string.
-        :param token_key:Correspond key for custom "Token" location.
         """
         self.app = app
         self.enforcer = enforcer
-        self.user_loc = token_loc
-        self.user_key = token_key
 
     async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:
         if scope["type"] not in ("http", "websocket"):
@@ -67,6 +59,9 @@ class CasbinMiddleware:
         path = request.url.path
         method = request.method
         if 'user' not in scope:
-            raise RuntimeError("Casbin Middleware must work with a Authentication Middleware")
-        user = request.user
+            raise RuntimeError("Casbin Middleware must work with an Authentication Middleware")
+
+        assert isinstance(request.user,BaseUser)
+
+        user = request.user.display_name if request.user.is_authenticated else 'anonymous'
         return self.enforcer.enforce(user, path, method)
