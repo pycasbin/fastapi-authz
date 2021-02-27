@@ -1,0 +1,9 @@
+fastapi
+casbin
+pytest
+pip-tools
+pytest-cov
+coverage
+pypi-publisher
+bumpversion
+uvicorn

@@ -21,17 +21,17 @@ dependency_links = [
 ]
 
 setup(
-    name="flask-authz",
+    name="fastapi-authz",
     version=__version__,
-    description="An authorization middleware for Flask that supports ACL, RBAC, ABAC, based on Casbin",
+    description="An authorization middleware for FastAPI that supports ACL, RBAC, ABAC, based on PyCasbin",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    author=["Yang Luo", "Sciencelogic"],
-    author_email="hsluoyz@gmail.com",
-    url="https://github.com/pycasbin/flask-authz",
-    download_url="https://github.com/pycasbin/flask-authz/tarball/" + __version__,
+    author=["Zxilly"],
+    author_email="zhouxinyu1001@gmail.com",
+    url="https://github.com/pycasbin/fastapi-authz",
+    download_url="https://github.com/pycasbin/fastapi-authz/tarball/" + __version__,
     license="Apache 2.0",
-    python_requires=">=3.5",
+    python_requires=">=3.6",
     classifiers=[
         "Development Status :: 1 - Planning",
         "Intended Audience :: Developers",
