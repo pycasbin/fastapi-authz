@@ -1,12 +1,9 @@
-import typing
-
 from casbin.enforcer import Enforcer
-
+from starlette.authentication import BaseUser
 from starlette.requests import Request
 from starlette.responses import JSONResponse
 from starlette.status import HTTP_403_FORBIDDEN
 from starlette.types import ASGIApp, Receive, Scope, Send
-from starlette.authentication import BaseUser
 
 
 class CasbinMiddleware:
@@ -61,7 +58,10 @@ class CasbinMiddleware:
         if 'user' not in scope:
             raise RuntimeError("Casbin Middleware must work with an Authentication Middleware")
 
-        assert isinstance(request.user,BaseUser)
+        assert isinstance(request.user, BaseUser)
 
         user = request.user.display_name if request.user.is_authenticated else 'anonymous'
+
+        print(user, path, method)
+
         return self.enforcer.enforce(user, path, method)

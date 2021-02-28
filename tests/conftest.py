@@ -1,9 +1,9 @@
 import base64
 import binascii
+import os
 
 import casbin
 import pytest
-import os
 from fastapi import FastAPI
 from starlette.authentication import AuthenticationBackend, AuthenticationError, AuthCredentials, SimpleUser
 from starlette.middleware.authentication import AuthenticationMiddleware
@@ -38,9 +38,7 @@ def app_fixture():
 
     app = FastAPI()
 
-    @app.on_event('startup')
-    async def startup():
-        app.add_middleware(CasbinMiddleware, enforcer=enforcer)
-        app.add_middleware(AuthenticationMiddleware, backend=BasicAuth())
+    app.add_middleware(CasbinMiddleware, enforcer=enforcer)
+    app.add_middleware(AuthenticationMiddleware, backend=BasicAuth())
 
     yield app
