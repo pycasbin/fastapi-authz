@@ -54,7 +54,7 @@ setup(
         "authorization",
         "permission"
     ],
-    packages=find_packages(exclude=["docs", "tests*"]),
+    packages=find_packages(exclude=["docs", "pytest*"]),
     data_files=[desc_file],
     include_package_data=True,
     install_requires=install_requires,
