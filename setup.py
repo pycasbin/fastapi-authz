@@ -33,7 +33,7 @@ setup(
     license="Apache 2.0",
     python_requires=">=3.6",
     classifiers=[
-        "Development Status :: 1 - Planning",
+        "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
@@ -43,6 +43,8 @@ setup(
     ],
     keywords=[
         "fastapi",
+        "starlette",
+        "middleware",
         "pycasbin",
         "casbin",
         "auth",
@@ -54,7 +56,7 @@ setup(
         "authorization",
         "permission"
     ],
-    packages=find_packages(exclude=["docs", "pytest*"]),
+    packages=find_packages(exclude=["docs", "test*"]),
     data_files=[desc_file],
     include_package_data=True,
     install_requires=install_requires,
