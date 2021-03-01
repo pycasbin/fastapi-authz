@@ -5,6 +5,12 @@ on [PyCasbin](https://github.com/casbin/pycasbin).
 
 ## Installation
 
+Install from pip
+
+```bash
+pip install fastapi-authz
+```
+
 Clone this repo
 
 ```bash
