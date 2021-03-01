@@ -13,7 +13,9 @@ python setup.py install
 ```
 
 ## Quickstart
+
 This middleware is designed to work with another middleware which implement `AuthenticationMiddleware` interface.
+
 ```python
 import base64
 import binascii
@@ -60,10 +62,13 @@ async def index():
 async def auth_test():
     return "You must be alice to see this."
 ```
+
 - anonymous request
+
 ```bash
 curl -i http://127.0.0.1:8000/dataset1/protected
 ```
+
 ```bash
 HTTP/1.1 403 Forbidden
 date: Mon, 01 Mar 2021 09:00:08 GMT
@@ -75,6 +80,7 @@ content-type: application/json
 ```
 
 - authenticated request
+
 ```bash
 curl -i -u alice:password http://127.0.0.1:8000/dataset1/protected
 ```
@@ -91,7 +97,7 @@ content-type: application/json
 
 It used the casbin config from `examples` folder, and you can find this demo in `demo` folder.
 
-You can also view the unit tests to understand this middleware. 
+You can also view the unit tests to understand this middleware.
 
 ## Development
 

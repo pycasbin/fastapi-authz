@@ -1,8 +1,7 @@
 from setuptools import setup, find_packages
-from codecs import open
 from os import path
 
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 desc_file = "README.md"
 
 here = path.abspath(path.dirname(__file__))
@@ -10,6 +9,8 @@ here = path.abspath(path.dirname(__file__))
 # Get the long description from the README file
 with open(path.join(here, desc_file), encoding="utf-8") as f:
     long_description = f.read()
+
+print(long_description)
 
 # get the dependencies and installs
 with open(path.join(here, "requirements.txt"), encoding="utf-8") as f:
@@ -26,7 +27,7 @@ setup(
     description="An authorization middleware for FastAPI that supports ACL, RBAC, ABAC, based on PyCasbin",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    author=["Zxilly"],
+    author="Zxilly",
     author_email="zhouxinyu1001@gmail.com",
     url="https://github.com/pycasbin/fastapi-authz",
     download_url="https://github.com/pycasbin/fastapi-authz/tarball/" + __version__,
