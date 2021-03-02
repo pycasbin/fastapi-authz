@@ -110,7 +110,7 @@ You can also view the unit tests to understand this middleware.
 ### Run unit tests
 
 1. Fork/Clone repository
-2. Install flask-authz dependencies, and run `pytest`
+2. Install fastapi-authz dependencies, and run `pytest`
 
 ```bash
 pip install -r dev_requirements.txt
