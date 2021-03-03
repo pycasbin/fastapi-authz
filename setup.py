@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 from os import path
 
-__version__ = "0.0.2"
+__version__ = "0.0.3"
 desc_file = "README.md"
 
 here = path.abspath(path.dirname(__file__))
@@ -61,7 +61,7 @@ setup(
         "permission"
     ],
     packages=find_packages(exclude=["docs", "test*"]),
-    data_files=[desc_file],
+    data_files=[desc_file,"requirements.txt"],
     include_package_data=True,
     install_requires=install_requires,
     dependency_links=dependency_links
