@@ -3,7 +3,6 @@ casbin
 pytest
 pip-tools
 pytest-cov
-coverage
 bumpversion
 uvicorn
 starlette-auth-toolkit

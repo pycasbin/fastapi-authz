@@ -61,7 +61,7 @@ setup(
         "permission"
     ],
     packages=find_packages(exclude=["docs", "test*"]),
-    data_files=[desc_file,"requirements.txt"],
+    data_files=[desc_file, "requirements.txt"],
     include_package_data=True,
     install_requires=install_requires,
     dependency_links=dependency_links
