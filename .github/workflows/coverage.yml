@@ -5,23 +5,32 @@ name: Test Coveralls
 jobs:
 
   build:
-    name: Build
+    name: Coverage
     runs-on: ubuntu-latest
     steps:
 
     - uses: actions/checkout@v1
 
-    - name: Use Node.js 10.x
-      uses: actions/setup-node@v1
+    - uses: actions/setup-python@v2
       with:
-        node-version: 10.x
+        python-version: '3.9'
+        architecture: 'x64'
 
-    - name: npm install, make test-coverage
+
+    - name: Install Dependency
       run: |
-        npm install
-        make test-coverage
+        python -m pip install -r dev-requirements.txt
+        python -m pip install coveralls
 
-    - name: Coveralls
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Run Coverage
+      run: |
+        python -m pytest --cov=fastapi_authz tests/
+        coveralls --service=github
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+#    - name: Coveralls
+#      uses: coverallsapp/github-action@master
+#      with:
+#        github-token: ${{ secrets.GITHUB_TOKEN }}
+#        path-to-lcov: ${{ github.workspace }}/.coverage
