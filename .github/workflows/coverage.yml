@@ -18,13 +18,17 @@ jobs:
 
 
     - name: Install Dependency
-      run: python -m pip install -r dev-requirements.txt
+      run: |
+        python -m pip install -r dev-requirements.txt
+        python -m pip install coveralls
 
     - name: Run Coverage
-      run: python -m pytest --cov=fastapi_authz tests/
+      run: |
+        python -m pytest --cov=fastapi_authz tests/
+        coveralls
 
-    - name: Coveralls
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        path-to-lcov: ${{ github.workspace }}/.coverage
+#    - name: Coveralls
+#      uses: coverallsapp/github-action@master
+#      with:
+#        github-token: ${{ secrets.GITHUB_TOKEN }}
+#        path-to-lcov: ${{ github.workspace }}/.coverage
