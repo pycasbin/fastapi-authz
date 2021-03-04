@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 from os import path
 
-__version__ = "0.0.3"
+__version__ = "0.0.4"
 desc_file = "README.md"
 
 here = path.abspath(path.dirname(__file__))
