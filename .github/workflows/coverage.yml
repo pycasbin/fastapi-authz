@@ -27,7 +27,7 @@ jobs:
         python -m pytest --cov=fastapi_authz tests/
         coveralls
       env:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 #    - name: Coveralls
 #      uses: coverallsapp/github-action@master
