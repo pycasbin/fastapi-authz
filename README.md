@@ -1,5 +1,13 @@
 # fastapi-authz
 
+[![Build Status](https://github.com/pycasbin/fastapi-authz/actions/workflows/release.yml/badge.svg)](https://github.com/pycasbin/fastapi-authz/actions/workflows/release.yml)
+[![Coverage Status](https://coveralls.io/repos/github/pycasbin/fastapi-authz/badge.svg)](https://coveralls.io/github/pycasbin/fastapi-authz)
+[![Version](https://img.shields.io/pypi/v/fastapi-authz.svg)](https://pypi.org/project/fastapi-authz/)
+[![PyPI - Wheel](https://img.shields.io/pypi/wheel/fastapi-authz.svg)](https://pypi.org/project/fastapi-authz/)
+[![Pyversions](https://img.shields.io/pypi/pyversions/fastapi-authz.svg)](https://pypi.org/project/fastapi-authz/)
+[![Download](https://img.shields.io/pypi/dm/fastapi-authz.svg)](https://pypi.org/project/fastapi-authz/)
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/casbin/lobby)
+
 fastapi-authz is an authorization middleware for [FastAPI](https://fastapi.tiangolo.com/), it's based
 on [PyCasbin](https://github.com/casbin/pycasbin).
 
