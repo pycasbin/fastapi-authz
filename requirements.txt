@@ -1,5 +1,2 @@
-casbin==0.18.1
-fastapi==0.63.0
-pydantic==1.7.3
-simpleeval==0.9.10
-starlette==0.13.6
+casbin
+fastapi
