@@ -25,7 +25,7 @@ jobs:
     - name: Run Coverage
       run: |
         python -m pytest --cov=fastapi_authz tests/
-        coveralls
+        coveralls --service=github
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
