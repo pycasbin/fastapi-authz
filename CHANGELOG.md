@@ -1,5 +1,22 @@
 # Semantic Versioning Changelog
 
+# [0.1.0](https://github.com/pycasbin/fastapi-authz/compare/v0.0.1...v0.1.0) (2021-03-11)
+
+
+### Bug Fixes
+
+* fix package ([6fc0a68](https://github.com/pycasbin/fastapi-authz/commit/6fc0a68e9a6620c0e67f355d82894b09aa5da1ef))
+* fix package build ([6ec4f6a](https://github.com/pycasbin/fastapi-authz/commit/6ec4f6a58e205bf70913b21cf7102282f4435939))
+* fix package install ([98f7a34](https://github.com/pycasbin/fastapi-authz/commit/98f7a34c2ee70b39a25f11d64746078253fb03ba))
+* typo ([5081da4](https://github.com/pycasbin/fastapi-authz/commit/5081da46b99d1b8d1746f683d675bde17566d659))
+* typo ([fe5800f](https://github.com/pycasbin/fastapi-authz/commit/fe5800f0f5af1b13a45721b24cfbdc48beabc8a2))
+
+
+### Features
+
+* add readme and demo ([191c6f1](https://github.com/pycasbin/fastapi-authz/commit/191c6f1caa812f288e8e8ecebad74762ca3b1866))
+* add release config ([ca64044](https://github.com/pycasbin/fastapi-authz/commit/ca64044342088f36fb9822376487260a2ac2c6a1))
+
 # [0.1.0](https://github.com/pycasbin/fastapi-authz/compare/v0.0.3...v0.1.0) (2021-03-04)
 
 
