@@ -1,7 +1,6 @@
 from setuptools import setup, find_packages
 from os import path
 
-__version__ = "0.0.5"
 desc_file = "README.md"
 
 here = path.abspath(path.dirname(__file__))
@@ -23,14 +22,12 @@ dependency_links = [
 
 setup(
     name="fastapi-authz",
-    version=__version__,
     description="An authorization middleware for FastAPI that supports ACL, RBAC, ABAC, based on PyCasbin",
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="Zxilly",
     author_email="zhouxinyu1001@gmail.com",
     url="https://github.com/pycasbin/fastapi-authz",
-    download_url="https://github.com/pycasbin/fastapi-authz/tarball/" + __version__,
     license="Apache 2.0",
     python_requires=">=3.6",
     classifiers=[

@@ -30,7 +30,7 @@ class CasbinMiddleware:
             await self.app(scope, receive, send)
             return
 
-        if self._enforce(scope, receive):
+        if self._enforce(scope, receive) or scope["method"] == "OPTIONS":
             await self.app(scope, receive, send)
             return
         else:
@@ -61,7 +61,5 @@ class CasbinMiddleware:
         assert isinstance(request.user, BaseUser)
 
         user = request.user.display_name if request.user.is_authenticated else 'anonymous'
-
-        print(user, path, method)
 
         return self.enforcer.enforce(user, path, method)
