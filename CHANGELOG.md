@@ -1,5 +1,13 @@
 # Semantic Versioning Changelog
 
+# [0.1.0](https://github.com/pycasbin/fastapi-authz/compare/v0.0.5...v0.1.0) (2021-12-01)
+
+
+### Features
+
+* add release config ([ca64044](https://github.com/pycasbin/fastapi-authz/commit/ca64044342088f36fb9822376487260a2ac2c6a1))
+* always allow OPTIONS ([#16](https://github.com/pycasbin/fastapi-authz/issues/16)) ([6576796](https://github.com/pycasbin/fastapi-authz/commit/65767963ce26d8a63115ecbc87e76f812abd430f))
+
 # [0.1.0](https://github.com/pycasbin/fastapi-authz/compare/v0.0.1...v0.1.0) (2021-03-11)
 
 
