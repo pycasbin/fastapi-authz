@@ -1,10 +1,11 @@
 atomicwrites==1.4.0
 attrs==20.3.0
 bleach==3.3.0
+bracex==2.2.1
 build==0.3.0
 bump2version==1.0.1
 bumpversion==0.6.0
-casbin==0.18.1
+casbin==1.12.0
 certifi==2020.12.5
 chardet==4.0.0
 click==7.1.2
@@ -32,7 +33,7 @@ readme-renderer==29.0
 requests-toolbelt==0.9.1
 requests==2.25.1
 rfc3986==1.4.0
-simpleeval==0.9.10
+simpleeval==0.9.11
 six==1.15.0
 starlette-auth-toolkit==0.5.0
 starlette==0.13.6
@@ -41,4 +42,9 @@ tqdm==4.58.0
 twine==3.3.0
 urllib3==1.26.3
 uvicorn==0.13.4
+wcmatch==8.3
 webencodings==0.5.1
+
+# The following packages are considered to be unsafe in a requirements file:
+# pip
+# setuptools

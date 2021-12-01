@@ -6,6 +6,7 @@ from starlette.testclient import TestClient
     "test_server_path, test_client_path, method, status_code, user, response_body", [
         ('/dataset1/resource2', '/dataset1/resource2', 'GET', 200, 'alice', 'ok'),
         ('/dataset1/resource2', '/dataset1/resource2', 'GET', 403, 'notalice', 'Forbidden'),
+        ('/dataset1/resource2', '/dataset1/resource2', 'OPTIONS', 200, 'notalice', 'ok'),
         ('/dataset1/resource1', '/dataset1/resource1', 'POST', 200, 'alice', 'ok'),
     ]
 )
