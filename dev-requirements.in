@@ -9,3 +9,4 @@ starlette-auth-toolkit
 requests
 twine
 build
+pyjwt
