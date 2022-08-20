@@ -3,7 +3,6 @@ import binascii
 
 import casbin
 import uvicorn
-
 from fastapi import FastAPI
 from starlette.authentication import AuthenticationBackend, AuthenticationError, SimpleUser, AuthCredentials
 from starlette.middleware.authentication import AuthenticationMiddleware

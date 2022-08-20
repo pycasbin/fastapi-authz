@@ -25,9 +25,10 @@ pluggy==0.13.1
 py==1.10.0
 pydantic==1.7.3
 pygments==2.8.0
+pyjwt==2.3.0
 pyparsing==2.4.7
 pytest-cov==2.11.1
-pytest==6.2.2
+pytest==7.1.2
 pywin32-ctypes==0.2.0
 readme-renderer==29.0
 requests-toolbelt==0.9.1
