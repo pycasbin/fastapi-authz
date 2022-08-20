@@ -1,13 +1,6 @@
 import base64
 import binascii
 import os
-
-import casbin
-import pytest
-from fastapi import FastAPI
-from starlette.authentication import AuthenticationBackend, AuthenticationError, AuthCredentials, SimpleUser
-from starlette.middleware.authentication import AuthenticationMiddleware
-import os
 from typing import Optional, Tuple, Union
 
 import casbin
@@ -16,8 +9,8 @@ import pytest
 from fastapi import FastAPI
 from starlette.authentication import (
     AuthenticationBackend, AuthenticationError, BaseUser, AuthCredentials)
+from starlette.authentication import SimpleUser
 from starlette.middleware.authentication import AuthenticationMiddleware
-from datetime import datetime, timedelta
 
 from fastapi_authz import CasbinMiddleware
 
@@ -53,9 +46,6 @@ def app_fixture():
     app.add_middleware(AuthenticationMiddleware, backend=BasicAuth())
 
     yield app
-
-
-
 
 
 class JWTUser(BaseUser):

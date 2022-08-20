@@ -113,8 +113,8 @@ It used the casbin config from `examples` folder, and you can find this demo in 
 
 You can also view the unit tests to understand this middleware.
 
-Besides, there is another example for `CasbinMiddleware` which is designed to work with JWT authentication. You can find it in `demo/jwt_test.py`.
-
+Besides, there is another example for `CasbinMiddleware` which is designed to work with JWT authentication. You can find
+it in `demo/jwt_test.py`.
 
 ## Development
 

@@ -1,7 +1,8 @@
+from datetime import datetime, timedelta
+
+import jwt
 import pytest
 from starlette.testclient import TestClient
-import jwt
-from datetime import datetime, timedelta
 
 
 @pytest.mark.parametrize(
