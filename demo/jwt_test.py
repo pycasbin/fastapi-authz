@@ -1,61 +1,18 @@
-import base64
-import binascii
-import os
-
-import casbin
-import pytest
-from fastapi import FastAPI
-from starlette.authentication import AuthenticationBackend, AuthenticationError, AuthCredentials, SimpleUser
-from starlette.middleware.authentication import AuthenticationMiddleware
-import os
+from datetime import datetime, timedelta
 from typing import Optional, Tuple, Union
 
 import casbin
 import jwt
-import pytest
+import uvicorn
 from fastapi import FastAPI
 from starlette.authentication import (
     AuthenticationBackend, AuthenticationError, BaseUser, AuthCredentials)
 from starlette.middleware.authentication import AuthenticationMiddleware
-from datetime import datetime, timedelta
 
 from fastapi_authz import CasbinMiddleware
 
-
-def get_examples(path):
-    examples_path = os.path.split(os.path.realpath(__file__))[0] + "/../examples/"
-    return os.path.abspath(examples_path + path)
-
-
-class BasicAuth(AuthenticationBackend):
-    async def authenticate(self, request):
-        if "Authorization" not in request.headers:
-            return None
-
-        auth = request.headers["Authorization"]
-        try:
-            scheme, credentials = auth.split()
-            decoded = base64.b64decode(credentials).decode("ascii")
-        except (ValueError, UnicodeDecodeError, binascii.Error):
-            raise AuthenticationError("Invalid basic auth credentials")
-
-        username, _, password = decoded.partition(":")
-        return AuthCredentials(["authenticated"]), SimpleUser(username)
-
-
-@pytest.fixture
-def app_fixture():
-    enforcer = casbin.Enforcer(get_examples("rbac_model.conf"), get_examples("rbac_policy.csv"))
-
-    app = FastAPI()
-
-    app.add_middleware(CasbinMiddleware, enforcer=enforcer)
-    app.add_middleware(AuthenticationMiddleware, backend=BasicAuth())
-
-    yield app
-
-
-
+JWT_SECRET_KEY = "secret"
+app = FastAPI()
 
 
 class JWTUser(BaseUser):
@@ -116,14 +73,34 @@ class JWTAuthenticationBackend(AuthenticationBackend):
                                                            payload=payload)
 
 
-@pytest.fixture
-def jwt_app_fixture():
-    JWT_SECRET_KEY = "secret"
-    enforcer = casbin.Enforcer(get_examples("rbac_model.conf"), get_examples("rbac_policy.csv"))
+enforcer = casbin.Enforcer('../examples/rbac_model.conf', '../examples/rbac_policy.csv')
+app.add_middleware(CasbinMiddleware, enforcer=enforcer)
 
-    app = FastAPI()
+app.add_middleware(AuthenticationMiddleware, backend=JWTAuthenticationBackend(secret_key=JWT_SECRET_KEY))
 
-    app.add_middleware(CasbinMiddleware, enforcer=enforcer)
-    app.add_middleware(AuthenticationMiddleware, backend=JWTAuthenticationBackend(secret_key=JWT_SECRET_KEY))
 
-    yield app
+def create_access_token(subject: str, expires_delta: timedelta = None) -> str:
+    if expires_delta:
+        expire = datetime.utcnow() + expires_delta
+    else:
+        expire = datetime.utcnow() + timedelta(
+            minutes=60
+        )
+    to_encode = {"exp": expire, "username": subject}
+    return jwt.encode(to_encode, JWT_SECRET_KEY, algorithm="HS256")
+
+
+@app.get('/')
+async def index():
+    return "If you see this, you have been authenticated."
+
+
+@app.get('/dataset1/protected')
+async def auth_test():
+    return "You must be alice to see this."
+
+
+if __name__ == '__main__':
+    print("alice:", create_access_token("alice", expires_delta=timedelta(minutes=60)))
+    print("mark:", create_access_token("mark", expires_delta=timedelta(minutes=60)))
+    uvicorn.run(app, debug=True)
