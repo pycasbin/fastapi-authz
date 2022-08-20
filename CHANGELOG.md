@@ -1,5 +1,12 @@
 # Semantic Versioning Changelog
 
+# [0.2.0](https://github.com/pycasbin/fastapi-authz/compare/v0.1.0...v0.2.0) (2022-08-20)
+
+
+### Features
+
+* add jwt demo ([#19](https://github.com/pycasbin/fastapi-authz/issues/19)) ([8a3b50e](https://github.com/pycasbin/fastapi-authz/commit/8a3b50e58e53885140b3b4cffc50f17cb3406aa3))
+
 # [0.1.0](https://github.com/pycasbin/fastapi-authz/compare/v0.0.5...v0.1.0) (2021-12-01)
 
 ### Features
