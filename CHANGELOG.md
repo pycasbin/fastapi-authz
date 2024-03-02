@@ -1,5 +1,12 @@
 # Semantic Versioning Changelog
 
+# [0.3.0](https://github.com/pycasbin/fastapi-authz/compare/v0.2.0...v0.3.0) (2024-03-02)
+
+
+### Features
+
+* update Python version to 3.9+, update CI Node.js version to 20 ([e762344](https://github.com/pycasbin/fastapi-authz/commit/e7623440e02977dde02673d0ce9158dddb14bd67))
+
 # [0.2.0](https://github.com/pycasbin/fastapi-authz/compare/v0.1.0...v0.2.0) (2022-08-20)
 
 
