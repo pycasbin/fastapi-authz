@@ -23,26 +23,12 @@ dependency_links = [
 
 setup(
     name="fastapi-authz",
+    author="Zxilly",
+    author_email="zhouxinyu1001@gmail.com",
     description="An authorization middleware for FastAPI that supports ACL, RBAC, ABAC, based on PyCasbin",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    author="Zxilly",
-    author_email="zhouxinyu1001@gmail.com",
     url="https://github.com/pycasbin/fastapi-authz",
-    license="Apache 2.0",
-    python_requires=">=3.6",
-    classifiers=[
-        "Development Status :: 3 - Alpha",
-        "Intended Audience :: Developers",
-        "Programming Language :: Python :: 3 :: Only",
-        "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.9",
-        "Programming Language :: Python :: 3.10",
-        "Programming Language :: Python :: 3.11",
-        "Programming Language :: Python :: 3.12",
-        "License :: OSI Approved :: Apache Software License",
-        "Operating System :: OS Independent",
-    ],
     keywords=[
         "fastapi",
         "starlette",
@@ -59,8 +45,18 @@ setup(
         "permission"
     ],
     packages=find_packages(exclude=["docs", "test*"]),
+    install_requires=install_requires,
+    python_requires=">=3.6",
     data_files=[desc_file, "requirements.txt"],
     include_package_data=True,
-    install_requires=install_requires,
-    dependency_links=dependency_links
+    dependency_links=dependency_links,
+    license="Apache 2.0",
+    classifiers=[
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
+        "License :: OSI Approved :: Apache Software License",
+        "Operating System :: OS Independent",
+    ],
 )
