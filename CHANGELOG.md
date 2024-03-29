@@ -1,5 +1,17 @@
 # Semantic Versioning Changelog
 
+# [1.0.0](https://github.com/pycasbin/fastapi-authz/compare/v0.3.0...v1.0.0) (2024-03-29)
+
+
+### Features
+
+* upgrade CI Python version to 3.12 ([7886242](https://github.com/pycasbin/fastapi-authz/commit/7886242a1e552439c88b66575e97793100be2ae1))
+
+
+### BREAKING CHANGES
+
+* trigger major release
+
 # [0.3.0](https://github.com/pycasbin/fastapi-authz/compare/v0.2.0...v0.3.0) (2024-03-02)
 
 
